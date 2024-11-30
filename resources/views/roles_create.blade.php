@@ -22,7 +22,7 @@
                 <form action="{{route("roles.store")}}" method="post">
                     @csrf
                     <div class="mb-3">
-                        <label for="name">Name (nombre del rol) </label>
+                        <label for="name" class="form-label">Name (nombre del rol) </label>
                         <input type="text" id="name" name="name" value="{{old("name")}}" class="form-control">
                     </div>
                     <div class="mb-3">

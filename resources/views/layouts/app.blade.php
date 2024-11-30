@@ -18,7 +18,7 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
@@ -34,27 +34,37 @@
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link {{Request::is('alertas*')?'active':''}}" href="{{ route('alertas.index') }}"
-                           }}
                         >Alertas urbanas</a>
                     </li>
                     @can("user.index")
-                    <li class="nav-item">
-                        <a class="nav-link {{Request::is('users*')?'active':''}}" href="{{ route('users.index') }}"
-                           }}
-                        >Usuarios</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{Request::is('users*')?'active':''}}" href="{{ route('users.index') }}"
+                            >Usuarios</a>
+                        </li>
                     @endcan
                     @can("role.index")
-                    <li class="nav-item">
-                        <a class="nav-link {{Request::is('roles*')?'active':''}}" href="{{ route('roles.index') }}"
-                           }}
-                        >Roles</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{Request::is('roles*')?'active':''}}" href="{{ route('roles.index') }}"
+                            >Roles</a>
+                        </li>
+                    @endcan
+                    @can("estado.index")
+                        <li class="nav-item">
+                            <a class="nav-link {{Request::is('estados*')?'active':''}}"
+                               href="{{ route('estados.index') }}"
+                            >Estados</a>
+                        </li>
                     @endcan
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <div class="form-check form-switch nav-link">
+                            <input class="form-check-input" type="checkbox" id="theme-switcher">
+                            <label class="form-check-label" for="theme-switcher">Tema oscuro</label>
+                        </div>
+                    </li>
                     <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))
@@ -99,5 +109,19 @@
 </div>
 
 @yield("script")
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const themeSwitcher = document.getElementById("theme-switcher");
+        const htmlElement = document.documentElement;
+        const savedTheme = localStorage.getItem("theme") || "light";
+        htmlElement.setAttribute("data-bs-theme", savedTheme);
+        themeSwitcher.checked = savedTheme === "dark";
+        themeSwitcher.addEventListener("change", () => {
+            const newTheme = themeSwitcher.checked ? "dark" : "light";
+            htmlElement.setAttribute("data-bs-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+        });
+    });
+</script>
 </body>
 </html>

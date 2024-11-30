@@ -28,12 +28,12 @@
                                class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label for="email">Email</label>
+                        <label for="email" class="form-label">Email</label>
                         <input type="text" id="email" name="email" value="{{old("email",$user->email)}}"
                                class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label for="password">Password (contraseña)</label>
+                        <label for="password" class="form-label">Password (contraseña)</label>
                         <input type="text" id="password" name="password" value="{{old("password",$user->password)}}"
                                class="form-control">
                     </div>

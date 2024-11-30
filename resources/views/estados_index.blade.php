@@ -16,7 +16,7 @@
                 @endif
 
                 <div class="table-responsive">
-                    <table class="table table-striped table-hover text-center">
+                    <table class="table table-striped table-hover text-center align-middle">
                         <thead>
                         <tr>
                             <th>Id</th>
@@ -30,7 +30,7 @@
                             <tr>
                                 <td class="text-end">{{$estado->id}}</td>
                                 <td class="text-start">{{$estado->descripcion}}</td>
-                                <td>{{$estado->color}}</td>
+                                <td><input type="color" value="{{$estado->color}}" class="form-control-color" disabled> </td>
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{route("estados.edit", $estado)}}" class="btn btn-primary">Editar</a>

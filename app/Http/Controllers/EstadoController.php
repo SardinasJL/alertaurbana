@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class EstadoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("can:estado.index")->only("index");
+        $this->middleware("can:estado.create")->only("create", "store");
+        $this->middleware("can:estado.edit")->only("edit", "update");
+        $this->middleware("can:estado.delete")->only("destroy");
+    }
 
     public function validarForm(Request $request)
     {
@@ -89,7 +96,7 @@ class EstadoController extends Controller
         try {
             $estado = Estado::findOrFail($id);
             if ($estado->relAlerta->count() > 0)
-                return redirect()->route("estados.index")->with(["mensaje" => "Este estado tiene alertas asociadas. Primero debe eliminar las alertas del tipo \"$estado->descripcion\"", "danger"=>"danger"]);
+                return redirect()->route("estados.index")->with(["mensaje" => "Este estado tiene alertas asociadas. Primero debe eliminar las alertas del tipo \"$estado->descripcion\"", "danger" => "danger"]);
             $estado->delete();
             return redirect()->route("estados.index")->with(["mensaje" => "Estado borrado"]);
         } catch (\Exception $e) {

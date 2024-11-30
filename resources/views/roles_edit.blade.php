@@ -23,7 +23,7 @@
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
-                        <label for="name">Name (nombre del rol) </label>
+                        <label for="name" class="form-label">Name (nombre del rol) </label>
                         <input type="text" id="name" name="name" value="{{old("name",$role->name)}}"
                                class="form-control">
                     </div>

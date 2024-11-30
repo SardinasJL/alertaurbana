@@ -40,7 +40,7 @@
                                 @endauth
                                 <div class="col-auto">
                                     <input type="text" name="direccion" id="direccion" class="form-control"
-                                           value="{{old("direccion")}}" placeholder="Buscar por dirección" autofocus>
+                                           value="{{old("direccion")}}" placeholder="Buscar por dirección">
                                 </div>
                                 <div class="col-auto">
                                     <button type="submit" class="btn btn-primary">Buscar</button>

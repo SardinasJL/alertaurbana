@@ -16,7 +16,7 @@
                 @endif
 
                 <div class="table-responsive">
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover align-middle">
                         <thead>
                         <tr class="text-center">
                             <th>Id</th>
@@ -29,7 +29,7 @@
                         <tbody>
                         @foreach($users as $user)
                             <tr>
-                                <td>{{$user->id}}</td>
+                                <td class="text-end">{{$user->id}}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>*****</td>

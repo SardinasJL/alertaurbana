@@ -78,13 +78,19 @@ class DatabaseSeeder extends Seeder
         Permission::create(["name" => "role.edit"]);
         Permission::create(["name" => "role.delete"]);
 
+        Permission::create(["name" => "estado.index"]);
+        Permission::create(["name" => "estado.create"]);
+        Permission::create(["name" => "estado.edit"]);
+        Permission::create(["name" => "estado.delete"]);
+
         $rolAdministrador = Role::create(["name" => "administrador"]);
         $rolCiudadano = Role::create(["name" => "ciudadano"]);
 
         $rolAdministrador->syncPermissions([
             "alerta.index","alerta.create", "alerta.edit", "alerta.delete",
             "user.index", "user.create", "user.edit", "user.delete",
-            "role.index", "role.create", "role.edit", "role.delete"
+            "role.index", "role.create", "role.edit", "role.delete",
+            "estado.index", "estado.create", "estado.edit", "estado.delete"
         ]);
 
         $rolCiudadano->syncPermissions([
