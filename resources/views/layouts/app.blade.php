@@ -13,6 +13,39 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <!--- Animaciones (efectos de transición) --->
+    <style>
+        /* Contenedor general */
+        .page-transition {
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 0.5s ease-in-out;
+        }
+
+        /* Animación para entrar */
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Animación para salir */
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+        }
+    </style>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -104,7 +137,9 @@
     </nav>
 
     <main class="py-4">
-        @yield('content')
+        <div class="page-transition"><!--- Las animaciones se añaden aquí --->
+            @yield('content')
+        </div>
     </main>
 </div>
 
