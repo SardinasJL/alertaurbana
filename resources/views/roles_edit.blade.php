@@ -35,10 +35,7 @@
                                            class="form-check-label">{{$permission->name}}</label>
                                     <input type="checkbox" id="{{$permission->id}}" name="permissions[]"
                                            value="{{$permission->name}}" class="form-check-input"
-                                    @foreach($role->getPermissionNames() as $permissionName)
-                                        {{$permission->name==$permissionName?"checked":""}}
-                                        @endforeach
-                                    >
+                                        {{$role->hasPermissionTo($permission)?"checked":""}}>
                                 </div>
                             @endforeach
                         </div>

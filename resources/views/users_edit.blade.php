@@ -43,11 +43,7 @@
                                 <div class="form-check col-3">
                                     <label for="{{$role->name}}" class="form-check-label">{{$role->name}}</label>
                                     <input type="checkbox" name="roles[]" id="{{$role->name}}" value="{{$role->name}}"
-                                           class="form-check-input"
-                                    @foreach($user->getRoleNames() as $roleName)
-                                        {{$role->name==$roleName?"checked":""}}
-                                        @endforeach
-                                    >
+                                           class="form-check-input" {{$user->hasRole($role)?"checked":""}}>
                                 </div>
                             @endforeach
                         </div>
