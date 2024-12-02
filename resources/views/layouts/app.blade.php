@@ -93,9 +93,11 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <div class="form-check form-switch nav-link">
-                            <input class="form-check-input" type="checkbox" id="theme-switcher">
-                            <label class="form-check-label" for="theme-switcher">Tema oscuro</label>
+                        <div class="nav-link">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="theme-switcher">
+                                <label class="form-check-label" for="theme-switcher">Tema oscuro</label>
+                            </div>
                         </div>
                     </li>
                     <!-- Authentication Links -->
