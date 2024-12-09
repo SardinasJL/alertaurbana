@@ -58,8 +58,8 @@
                                      style="background-color: {{$alerta->relEstado->color}}">
                                     {{$alerta->relEstado->descripcion}}
                                 </div>
-                                <img src="{{url("fotos/$alerta->foto")}}" class="card-img-top"
-                                     alt="{{$alerta->relEstado->descripcion}}">
+                                <img src="{{url("fotos/$alerta->foto")}}" class="card-img-top object-fit-contain"
+                                     alt="{{$alerta->relEstado->descripcion}}" height="200" style="background-color: #eeeeee">
                                 <div class="card-body">
                                     <b>Descripción:</b><br>
                                     {{$alerta->descripcion}}<br>
